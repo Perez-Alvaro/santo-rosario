@@ -89,15 +89,29 @@ export function EvangelioSection() {
     );
   }
 
-  // Clean HTML tags from text
+  // Clean HTML tags and verse numbers from text for better readability
   const cleanText = (text: string) => {
     return text
+      // Remove HTML tags
       .replace(/<[^>]*>/g, "")
+      // Remove HTML entities
       .replace(/&nbsp;/g, " ")
       .replace(/&quot;/g, '"')
       .replace(/&amp;/g, "&")
       .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">");
+      .replace(/&gt;/g, ">")
+      // Remove Bible verse references in format [[Book chapter,verse]]
+      .replace(/\[\[[^\]]+\]\]/g, "")
+      // Remove verse numbers (e.g., "1 ", "12 ", "123 " at the start of lines or after line breaks)
+      .replace(/(\n|^)\s*\d+\s+/g, "$1")
+      // Remove inline verse numbers (numbers between spaces)
+      .replace(/\s+\d+\s+/g, " ")
+      // Clean up multiple spaces
+      .replace(/\s{2,}/g, " ")
+      // Clean up multiple line breaks
+      .replace(/\n{3,}/g, "\n\n")
+      // Trim
+      .trim();
   };
 
   // Render a reading section
@@ -157,16 +171,16 @@ export function EvangelioSection() {
       {/* Readings */}
       <div className="border border-border/30 rounded-lg bg-card overflow-hidden">
         <Accordion type="multiple" defaultValue={["gospel"]} className="divide-y divide-border/30">
-          {/* Primera Lectura */}
-          {renderReading(liturgia.primeraLectura)}
+          {/* Primera Lectura - Always show when available */}
+          {liturgia.primeraLectura && renderReading(liturgia.primeraLectura)}
 
-          {/* Salmo */}
+          {/* Salmo - Always show */}
           {renderReading(liturgia.salmo)}
 
-          {/* Segunda Lectura (if exists) */}
-          {renderReading(liturgia.segundaLectura)}
+          {/* Segunda Lectura - Always show when available */}
+          {liturgia.segundaLectura && renderReading(liturgia.segundaLectura)}
 
-          {/* Evangelio */}
+          {/* Evangelio - Always show */}
           {renderReading(liturgia.evangelio, "gospel")}
         </Accordion>
       </div>

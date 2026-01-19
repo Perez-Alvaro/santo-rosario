@@ -12,6 +12,7 @@ interface Misterio {
   numero: number;
   titulo: string;
   contemplacion: string;
+  referenciaBiblica?: string;
 }
 
 interface MysterySectionProps {
@@ -67,6 +68,11 @@ export function MysterySection({
                       >
                         {misterio.contemplacion}
                       </p>
+                      {misterio.referenciaBiblica && (
+                        <p className="text-muted-foreground/70 text-[13px] sm:text-[14px] italic mt-3">
+                          {misterio.referenciaBiblica}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>

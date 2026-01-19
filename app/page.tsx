@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { oraciones, misterios, jaculatorias } from "@/lib/rosario-data";
 import { SectionTabs } from "@/components/rosario/section-tabs";
 import { PrayerCard } from "@/components/rosario/prayer-card";
@@ -73,13 +74,17 @@ export default function RosarioPage() {
           </div>
 
           <div className="text-center space-y-4">
-            {/* Tau Cross - Franciscan Symbol */}
-            <div
-              className="text-primary/70 text-4xl sm:text-5xl font-light select-none transition-colors duration-500"
-              aria-hidden="true"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              τ
+            {/* Header Image */}
+            <div className="flex justify-center mb-2">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40">
+                <Image
+                  src="/header.png"
+                  alt="Santo Rosario"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </div>
             <div className="space-y-2">
               <h1 className="text-2xl sm:text-3xl font-semibold text-foreground text-balance">

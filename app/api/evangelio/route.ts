@@ -63,7 +63,12 @@ export async function GET() {
         };
 
         // Categorize readings by type
-        if (reading.type === "first_reading" || reading.reading_code?.startsWith("FR")) {
+        // The API uses type "reading" with reading_number (1 or 2) for Primera and Segunda Lectura
+        if (reading.type === "reading" && reading.reading_number === 1) {
+          primeraLectura = readingData;
+        } else if (reading.type === "reading" && reading.reading_number === 2) {
+          segundaLectura = readingData;
+        } else if (reading.type === "first_reading" || reading.reading_code?.startsWith("FR")) {
           primeraLectura = readingData;
         } else if (reading.type === "psalm" || reading.reading_code?.startsWith("PS")) {
           salmo = readingData;
