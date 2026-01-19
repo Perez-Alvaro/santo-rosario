@@ -32,10 +32,11 @@ export function ThemeToggle() {
     <button
       onClick={cycleTheme}
       className={cn(
-        "flex items-center justify-center w-10 h-10 rounded-full",
-        "bg-secondary/50 hover:bg-secondary transition-colors",
+        "flex items-center justify-center w-11 h-11 rounded-full",
+        "bg-secondary/40 hover:bg-secondary/70 transition-all duration-300",
         "text-muted-foreground hover:text-foreground",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        "shadow-sm hover:shadow-md"
       )}
       aria-label={`Cambiar tema. Actual: ${theme === "system" ? "automático" : theme === "dark" ? "oscuro" : "claro"}`}
       title={theme === "system" ? "Tema automático" : theme === "dark" ? "Modo oscuro" : "Modo claro"}
@@ -43,8 +44,8 @@ export function ThemeToggle() {
       {theme === "system" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
+          width="19"
+          height="19"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -52,6 +53,7 @@ export function ThemeToggle() {
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
+          className="transition-transform duration-300 hover:scale-110"
         >
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
           <line x1="8" y1="21" x2="16" y2="21" />
@@ -60,8 +62,8 @@ export function ThemeToggle() {
       ) : resolvedTheme === "dark" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
+          width="19"
+          height="19"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -69,14 +71,15 @@ export function ThemeToggle() {
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
+          className="transition-transform duration-300 hover:scale-110"
         >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
+          width="19"
+          height="19"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -84,6 +87,7 @@ export function ThemeToggle() {
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
+          className="transition-transform duration-300 hover:scale-110"
         >
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />

@@ -58,7 +58,13 @@ export function MysterySection({
                       <h4 className="font-semibold text-foreground mb-2">
                         {misterio.titulo}
                       </h4>
-                      <p className="text-muted-foreground leading-relaxed text-[15px]">
+                      <p
+                        className="text-muted-foreground text-[14px] sm:text-[15px]"
+                        style={{
+                          lineHeight: 'var(--lectio-line-height)',
+                          letterSpacing: 'var(--lectio-letter-spacing)',
+                        }}
+                      >
                         {misterio.contemplacion}
                       </p>
                     </div>

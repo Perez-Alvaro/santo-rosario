@@ -1,22 +1,32 @@
 import { NextResponse } from "next/server";
 
+interface Reading {
+  type: string;
+  reference: string;
+  title: string;
+  text: string;
+}
+
 interface EvangelioData {
   fecha: string;
-  cita: string;
-  titulo: string;
-  texto: string;
   liturgia?: string;
+  primeraLectura?: Reading;
+  salmo?: Reading;
+  segundaLectura?: Reading;
+  evangelio?: Reading;
+  error?: boolean;
+  mensaje?: string;
 }
 
 export async function GET() {
   try {
-    // Try to fetch from the Evangelio del Día API (evangeliodeldia.org)
+    // Fetch from Evangelizo.org API
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, "0");
     const day = String(today.getDate()).padStart(2, "0");
-    
-    // Use a reliable Catholic liturgy API
+
+    // Use Evangelizo.org API with correct endpoint
     const response = await fetch(
       `https://publication.evangelizo.ws/SP/days/${year}-${month}-${day}`,
       {
@@ -32,38 +42,86 @@ export async function GET() {
     }
 
     const data = await response.json();
-    
-    // Extract the Gospel reading from the response
-    const gospelReading = data.readings?.find(
-      (reading: { type?: string; reading_code?: string }) => 
-        reading.type === "gospel" || reading.reading_code?.startsWith("GS")
-    );
 
-    if (!gospelReading) {
-      throw new Error("Evangelio no encontrado");
+    // The API returns data.data with the actual content
+    const dayData = data.data || data;
+
+    // Initialize readings
+    let primeraLectura: Reading | undefined;
+    let salmo: Reading | undefined;
+    let segundaLectura: Reading | undefined;
+    let evangelio: Reading | undefined;
+
+    // Extract all readings from the API
+    if (dayData.readings && Array.isArray(dayData.readings)) {
+      dayData.readings.forEach((reading: any) => {
+        const readingData: Reading = {
+          type: reading.type || "",
+          reference: reading.reference || "",
+          title: reading.title || "",
+          text: reading.text || "",
+        };
+
+        // Categorize readings by type
+        if (reading.type === "first_reading" || reading.reading_code?.startsWith("FR")) {
+          primeraLectura = readingData;
+        } else if (reading.type === "psalm" || reading.reading_code?.startsWith("PS")) {
+          salmo = readingData;
+        } else if (reading.type === "second_reading" || reading.reading_code?.startsWith("SR")) {
+          segundaLectura = readingData;
+        } else if (reading.type === "gospel" || reading.reading_code?.startsWith("GS") || reading.title?.toLowerCase().includes("evangelio")) {
+          evangelio = readingData;
+        }
+      });
     }
 
-    const evangelio: EvangelioData = {
-      fecha: data.liturgic_title || formatDate(today),
-      cita: gospelReading.reference || "",
-      titulo: gospelReading.title || "Evangelio del día",
-      texto: gospelReading.text || "",
-      liturgia: data.liturgic_title,
+    // If no readings found, try alternative structure
+    if (!evangelio && dayData.gospel) {
+      evangelio = {
+        type: "gospel",
+        reference: dayData.gospel.reference || "",
+        title: dayData.gospel.title || "Evangelio del día",
+        text: dayData.gospel.text || "",
+      };
+    }
+
+    if (!primeraLectura && dayData.first_reading) {
+      primeraLectura = {
+        type: "first_reading",
+        reference: dayData.first_reading.reference || "",
+        title: dayData.first_reading.title || "Primera Lectura",
+        text: dayData.first_reading.text || "",
+      };
+    }
+
+    if (!salmo && dayData.psalm) {
+      salmo = {
+        type: "psalm",
+        reference: dayData.psalm.reference || "",
+        title: dayData.psalm.title || "Salmo Responsorial",
+        text: dayData.psalm.text || "",
+      };
+    }
+
+    const liturgiaData: EvangelioData = {
+      fecha: dayData.liturgic_title || formatDate(today),
+      liturgia: dayData.liturgic_title,
+      primeraLectura,
+      salmo,
+      segundaLectura,
+      evangelio,
     };
 
-    return NextResponse.json(evangelio);
+    return NextResponse.json(liturgiaData);
   } catch (error) {
-    console.error("Error fetching evangelio:", error);
-    
+    console.error("Error fetching liturgia:", error);
+
     // Return a fallback message
     return NextResponse.json(
       {
         fecha: formatDate(new Date()),
-        cita: "",
-        titulo: "Evangelio del día",
-        texto: "",
         error: true,
-        mensaje: "El Evangelio del día no está disponible en este momento. Te invitamos a continuar con tu oración.",
+        mensaje: "La liturgia del día no está disponible en este momento. Te invitamos a continuar con tu oración.",
       },
       { status: 200 } // Return 200 to not break the UI
     );

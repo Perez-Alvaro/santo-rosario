@@ -8,6 +8,7 @@ import { MysterySection } from "@/components/rosario/mystery-section";
 import { JaculatoriasSection } from "@/components/rosario/jaculatorias-section";
 import { RosaryGuide } from "@/components/rosario/rosary-guide";
 import { EvangelioSection } from "@/components/rosario/evangelio-section";
+import { CoronillaSection } from "@/components/rosario/coronilla-section";
 import { ThemeToggle } from "@/components/rosario/theme-toggle";
 import {
   Accordion,
@@ -20,6 +21,7 @@ const tabs = [
   { id: "rosario", label: "Rosario" },
   { id: "misterios", label: "Misterios" },
   { id: "oraciones", label: "Oraciones" },
+  { id: "coronilla", label: "Coronilla" },
   { id: "evangelio", label: "Evangelio" },
 ];
 
@@ -63,26 +65,32 @@ export default function RosarioPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-card border-b border-border/50 px-4 py-6 sm:py-8">
+      <header className="bg-card border-b border-border/50 px-4 py-8 sm:py-10">
         <div className="max-w-2xl mx-auto">
           {/* Theme Toggle */}
-          <div className="flex justify-end mb-4">
+          <div className="flex justify-end mb-6">
             <ThemeToggle />
           </div>
-          
-          <div className="text-center">
+
+          <div className="text-center space-y-4">
             {/* Tau Cross - Franciscan Symbol */}
-            <div className="mb-3 text-primary/70 text-2xl sm:text-3xl font-light select-none" aria-hidden="true">
-              T
+            <div
+              className="text-primary/70 text-4xl sm:text-5xl font-light select-none transition-colors duration-500"
+              aria-hidden="true"
+              style={{ fontFamily: 'Georgia, serif' }}
+            >
+              τ
             </div>
-            <h1 className="text-2xl sm:text-3xl font-semibold text-foreground mb-2 text-balance">
-              Santo Rosario
-            </h1>
-            <p className="text-muted-foreground text-sm italic">
-              Una capilla digital, silenciosa y accesible
-            </p>
+            <div className="space-y-2">
+              <h1 className="text-2xl sm:text-3xl font-semibold text-foreground text-balance">
+                Santo Rosario
+              </h1>
+              <p className="text-muted-foreground text-sm italic px-4">
+                Una capilla digital, silenciosa y accesible
+              </p>
+            </div>
             {todaysMystery && (
-              <p className="text-sm text-primary/80 mt-3 font-medium">
+              <p className="text-sm text-primary/80 font-medium pt-2">
                 Hoy: {getTodaysMysteryName()}
               </p>
             )}
@@ -110,7 +118,7 @@ export default function RosarioPage() {
               </p>
               <RosaryGuide />
             </div>
-            
+
             <div className="border-t border-border/30 pt-8">
               <h3 className="text-lg font-semibold text-foreground mb-4">
                 Jaculatorias
@@ -176,11 +184,18 @@ export default function RosarioPage() {
           </section>
         )}
 
+        {/* Coronilla Section */}
+        {activeTab === "coronilla" && (
+          <section>
+            <CoronillaSection />
+          </section>
+        )}
+
         {/* Evangelio Section */}
         {activeTab === "evangelio" && (
           <section>
             <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-              El Evangelio del día nos acompaña en la lectio divina, 
+              El Evangelio del día nos acompaña en la lectio divina,
               permitiéndonos meditar la Palabra de Dios en silencio y oración.
             </p>
             <EvangelioSection />
@@ -189,13 +204,15 @@ export default function RosarioPage() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 py-8 px-4 text-center mt-8">
-        <p className="text-xs text-muted-foreground/70 italic">
-          «Paz y Bien»
-        </p>
-        <p className="text-xs text-muted-foreground/50 mt-2">
-          San Francisco de Asís
-        </p>
+      <footer className="border-t border-border/50 py-10 px-4 text-center mt-12">
+        <div className="space-y-3">
+          <p className="text-sm text-muted-foreground/80 italic">
+            «Paz y Bien»
+          </p>
+          <p className="text-xs text-muted-foreground/60">
+            San Francisco de Asís
+          </p>
+        </div>
       </footer>
     </main>
   );

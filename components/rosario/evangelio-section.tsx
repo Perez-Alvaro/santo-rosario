@@ -8,138 +8,168 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-interface EvangelioData {
+interface Reading {
+  type: string;
+  reference: string;
+  title: string;
+  text: string;
+}
+
+interface LiturgiaData {
   fecha: string;
-  cita: string;
-  titulo: string;
-  texto: string;
   liturgia?: string;
+  primeraLectura?: Reading;
+  salmo?: Reading;
+  segundaLectura?: Reading;
+  evangelio?: Reading;
   error?: boolean;
   mensaje?: string;
 }
 
 export function EvangelioSection() {
-  const [evangelio, setEvangelio] = useState<EvangelioData | null>(null);
+  const [liturgia, setLiturgia] = useState<LiturgiaData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchEvangelio() {
+    async function fetchLiturgia() {
       try {
         const response = await fetch("/api/evangelio");
         const data = await response.json();
-        setEvangelio(data);
+        setLiturgia(data);
       } catch (error) {
-        console.error("Error loading evangelio:", error);
-        setEvangelio({
+        console.error("Error loading liturgia:", error);
+        setLiturgia({
           fecha: new Date().toLocaleDateString("es-ES", {
             weekday: "long",
             year: "numeric",
             month: "long",
             day: "numeric",
           }),
-          cita: "",
-          titulo: "Evangelio del día",
-          texto: "",
           error: true,
-          mensaje: "El Evangelio del día no está disponible en este momento. Te invitamos a continuar con tu oración.",
+          mensaje: "La liturgia del día no está disponible en este momento. Te invitamos a continuar con tu oración.",
         });
       } finally {
         setLoading(false);
       }
     }
 
-    fetchEvangelio();
+    fetchLiturgia();
   }, []);
 
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
         <div className="text-muted-foreground text-sm italic">
-          Cargando el Evangelio del día...
+          Cargando la liturgia del día...
         </div>
       </div>
     );
   }
 
-  if (!evangelio) {
+  if (!liturgia) {
     return null;
   }
 
-  // If there's an error or no text, show a gentle message
-  if (evangelio.error || !evangelio.texto) {
+  // If there's an error, show a gentle message
+  if (liturgia.error) {
     return (
       <div className="border border-border/30 rounded-lg bg-card p-6">
         <div className="text-center">
           <h3 className="text-lg font-medium text-foreground mb-2">
-            Evangelio del día
+            Liturgia del día
           </h3>
           <p className="text-sm text-muted-foreground capitalize mb-4">
-            {evangelio.fecha}
+            {liturgia.fecha}
           </p>
           <p className="text-muted-foreground text-sm italic leading-relaxed">
-            {evangelio.mensaje || "El Evangelio del día no está disponible en este momento. Te invitamos a continuar con tu oración."}
+            {liturgia.mensaje}
           </p>
         </div>
       </div>
     );
   }
 
-  // Clean HTML tags from text if present
-  const cleanText = evangelio.texto
-    .replace(/<[^>]*>/g, "")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&quot;/g, '"')
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
+  // Clean HTML tags from text
+  const cleanText = (text: string) => {
+    return text
+      .replace(/<[^>]*>/g, "")
+      .replace(/&nbsp;/g, " ")
+      .replace(/&quot;/g, '"')
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">");
+  };
+
+  // Render a reading section
+  const renderReading = (reading: Reading | undefined, defaultValue?: string) => {
+    if (!reading || !reading.text) return null;
+
+    return (
+      <AccordionItem value={reading.type} className="border-none">
+        <AccordionTrigger className="px-5 py-4 hover:no-underline hover:bg-accent/30 transition-colors">
+          <div className="flex flex-col items-start text-left">
+            <span className="text-lg font-medium text-foreground">
+              {reading.title}
+            </span>
+            {reading.reference && (
+              <span className="text-sm text-primary/80 mt-1">
+                {reading.reference}
+              </span>
+            )}
+          </div>
+        </AccordionTrigger>
+        <AccordionContent className="px-5 pb-6">
+          <div className="space-y-4">
+            {/* Reading text - optimized for lectio divina */}
+            <div className="mt-2">
+              <p
+                className="text-foreground text-[15px] sm:text-base whitespace-pre-line"
+                style={{
+                  lineHeight: 'var(--lectio-line-height)',
+                  letterSpacing: 'var(--lectio-letter-spacing)',
+                }}
+              >
+                {cleanText(reading.text)}
+              </p>
+            </div>
+
+            {/* Citation at the end */}
+            {reading.reference && (
+              <p className="text-sm text-muted-foreground text-right pt-2 border-t border-border/30">
+                — {reading.reference}
+              </p>
+            )}
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+    );
+  };
 
   return (
-    <div className="border border-border/30 rounded-lg bg-card overflow-hidden">
-      <Accordion type="single" collapsible defaultValue="evangelio">
-        <AccordionItem value="evangelio" className="border-none">
-          <AccordionTrigger className="px-5 py-4 hover:no-underline hover:bg-accent/30 transition-colors">
-            <div className="flex flex-col items-start text-left">
-              <span className="text-lg font-medium text-foreground">
-                Evangelio del día
-              </span>
-              {evangelio.cita && (
-                <span className="text-sm text-primary/80 mt-1">
-                  {evangelio.cita}
-                </span>
-              )}
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="px-5 pb-6">
-            <div className="space-y-4">
-              {/* Liturgical date */}
-              <p className="text-sm text-muted-foreground capitalize border-b border-border/30 pb-3">
-                {evangelio.liturgia || evangelio.fecha}
-              </p>
+    <div className="space-y-4">
+      {/* Liturgical date header */}
+      <div className="border border-border/30 rounded-lg bg-card p-4">
+        <p className="text-sm text-muted-foreground capitalize text-center">
+          {liturgia.liturgia || liturgia.fecha}
+        </p>
+      </div>
 
-              {/* Gospel title if different from citation */}
-              {evangelio.titulo && evangelio.titulo !== "Evangelio del día" && (
-                <h4 className="text-base font-medium text-foreground italic">
-                  {evangelio.titulo}
-                </h4>
-              )}
+      {/* Readings */}
+      <div className="border border-border/30 rounded-lg bg-card overflow-hidden">
+        <Accordion type="multiple" defaultValue={["gospel"]} className="divide-y divide-border/30">
+          {/* Primera Lectura */}
+          {renderReading(liturgia.primeraLectura)}
 
-              {/* Gospel text - optimized for lectio divina */}
-              <div className="prose prose-sm max-w-none">
-                <p className="text-foreground leading-[1.8] text-base whitespace-pre-line">
-                  {cleanText}
-                </p>
-              </div>
+          {/* Salmo */}
+          {renderReading(liturgia.salmo)}
 
-              {/* Citation at the end */}
-              {evangelio.cita && (
-                <p className="text-sm text-muted-foreground text-right pt-2 border-t border-border/30">
-                  — {evangelio.cita}
-                </p>
-              )}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+          {/* Segunda Lectura (if exists) */}
+          {renderReading(liturgia.segundaLectura)}
+
+          {/* Evangelio */}
+          {renderReading(liturgia.evangelio, "gospel")}
+        </Accordion>
+      </div>
     </div>
   );
 }

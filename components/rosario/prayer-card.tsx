@@ -14,7 +14,13 @@ export function PrayerCard({ titulo, texto, className }: PrayerCardProps) {
       <h3 className="text-xl font-semibold text-foreground mb-4 text-center">
         {titulo}
       </h3>
-      <p className="text-lg leading-relaxed whitespace-pre-line text-foreground/90 text-center">
+      <p
+        className="text-base sm:text-lg whitespace-pre-line text-foreground/90 text-center"
+        style={{
+          lineHeight: 'var(--lectio-line-height)',
+          letterSpacing: 'var(--lectio-letter-spacing)',
+        }}
+      >
         {texto}
       </p>
     </div>

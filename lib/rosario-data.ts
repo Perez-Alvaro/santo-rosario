@@ -246,3 +246,64 @@ export const guiaRosario = {
     "Señal de la Cruz"
   ]
 };
+
+export const coronillaMisericordia = {
+  titulo: "Coronilla de la Divina Misericordia",
+  hora: "15:00",
+  descripcion: "La Coronilla de la Divina Misericordia es una oración poderosa que Jesús enseñó a Santa Faustina Kowalska. Se reza especialmente a las 3 de la tarde, hora de la Divina Misericordia, recordando la muerte de Jesús en la Cruz.",
+  introduccion: {
+    titulo: "Oraciones iniciales",
+    oraciones: [
+      {
+        nombre: "Señal de la Cruz",
+        texto: "En el nombre del Padre, y del Hijo, y del Espíritu Santo. Amén."
+      },
+      {
+        nombre: "Oración inicial (opcional)",
+        texto: "Tú expiraste, Jesús, pero la fuente de vida brotó para las almas y el océano de misericordia se abrió para el mundo entero. Oh Fuente de Vida, insondable Misericordia Divina, abarca al mundo entero y derrámate sobre nosotros."
+      },
+      {
+        nombre: "En las cuentas del Padre Nuestro",
+        texto: "Padre Eterno, te ofrezco el Cuerpo y la Sangre, el Alma y la Divinidad de tu amadísimo Hijo, nuestro Señor Jesucristo, como propiciación de nuestros pecados y los del mundo entero."
+      }
+    ]
+  },
+  decena: {
+    titulo: "En cada decena (repetir 5 veces)",
+    cuentaGrande: {
+      nombre: "En la cuenta grande (Padre Nuestro)",
+      texto: "Padre Eterno, te ofrezco el Cuerpo y la Sangre, el Alma y la Divinidad de tu amadísimo Hijo, nuestro Señor Jesucristo, como propiciación de nuestros pecados y los del mundo entero."
+    },
+    cuentasPequenas: {
+      nombre: "En las 10 cuentas pequeñas (Ave María)",
+      texto: "Por su dolorosa Pasión, ten misericordia de nosotros y del mundo entero."
+    }
+  },
+  conclusion: {
+    titulo: "Oración final",
+    oraciones: [
+      {
+        nombre: "Al terminar las 5 decenas (3 veces)",
+        texto: "Dios Santo, Dios Fuerte, Dios Inmortal, ten piedad de nosotros y del mundo entero."
+      },
+      {
+        nombre: "Oración final (opcional)",
+        texto: "Sangre y Agua que brotaste del Corazón de Jesús como fuente de Misericordia para nosotros, en Ti confío."
+      }
+    ]
+  },
+  guia: [
+    "1. Hacer la Señal de la Cruz",
+    "2. Rezar la oración inicial (opcional)",
+    "3. En la primera cuenta grande: Padre Eterno, te ofrezco...",
+    "4. En cada decena:",
+    "   • Cuenta grande: Padre Eterno, te ofrezco...",
+    "   • 10 cuentas pequeñas: Por su dolorosa Pasión...",
+    "5. Al terminar las 5 decenas, rezar 3 veces: Dios Santo, Dios Fuerte...",
+    "6. Concluir con la oración final (opcional)"
+  ],
+  horario: {
+    titulo: "La Hora de la Misericordia",
+    descripcion: "Jesús dijo a Santa Faustina: «A las tres de la tarde implora mi misericordia especialmente para los pecadores; y aunque sea por un breve momento, sumérgete en mi Pasión, particularmente en mi abandono en el momento de la agonía. Esta es la hora de gran misericordia para el mundo entero.»"
+  }
+};
