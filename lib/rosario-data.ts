@@ -32,7 +32,7 @@ Santa María, Madre de Dios, ruega por nosotros, pecadores, ahora y en la hora d
     texto: "Gloria al Padre, y al Hijo, y al Espíritu Santo. Como era en el principio, ahora y siempre, por los siglos de los siglos. Amén."
   },
   oracionLourdes: {
-    titulo: "Oración de Lourdes",
+    titulo: "Jaculatoria",
     texto: "Oh Jesús mío, perdónanos nuestros pecados, líbranos del fuego del infierno, lleva al cielo a todas las almas, especialmente a las más necesitadas de tu misericordia."
   },
   salveReina: {
@@ -72,31 +72,41 @@ export const misterios = {
         numero: 1,
         titulo: "La Anunciación del Ángel a María",
         contemplacion: "Contemplamos la humildad de María al aceptar ser la Madre del Salvador. El ángel Gabriel le anuncia que concebirá por obra del Espíritu Santo, y ella responde con fe: «Hágase en mí según tu palabra».",
-        referenciaBiblica: "Lucas 1, 26-38"
+        referenciaBiblica: "Lucas 1, 26-38",
+        preguntaReflexion: "¿En qué situación de tu semana pudiste decir 'hágase tu voluntad' en lugar de la tuya, aunque te costara?",
+        relacionEvangelio: "Lucas nos muestra a María recibiendo una noticia que trastocaba todos sus planes. El ángel no le impone, le propone; y ella, sin entender del todo, confía. El Evangelio nos invita a dejar espacio a lo que Dios quiere hacer en nosotros, incluso cuando no lo comprendemos."
       },
       {
         numero: 2,
         titulo: "La Visitación de María a su prima Isabel",
         contemplacion: "María, llevando a Jesús en su seno, va presurosa a servir a su prima Isabel. Al encontrarse, el niño Juan salta de gozo en el vientre de su madre, reconociendo al Mesías.",
-        referenciaBiblica: "Lucas 1, 39-56"
+        referenciaBiblica: "Lucas 1, 39-56",
+        preguntaReflexion: "¿Hubo alguien esta semana que necesitaba que fueras tú quien se acercara primero, sin esperar a que te pidiera ayuda?",
+        relacionEvangelio: "María no espera: va presurosa. El Evangelio muestra que la fe auténtica se traduce en movimiento hacia el otro. La alegría interior que produce el encuentro con Dios nos impulsa naturalmente a compartirla, especialmente con quienes más lo necesitan."
       },
       {
         numero: 3,
         titulo: "El Nacimiento del Hijo de Dios",
         contemplacion: "En la pobreza de un pesebre, nace el Rey del Universo. Los ángeles cantan Gloria a Dios en las alturas, y los pastores humildes son los primeros en adorarlo.",
-        referenciaBiblica: "Lucas 2, 1-20"
+        referenciaBiblica: "Lucas 2, 1-20",
+        preguntaReflexion: "¿En qué 'pesebres' de tu vida cotidiana —momentos pequeños y humildes— podrías encontrar a Dios presente esta semana?",
+        relacionEvangelio: "Dios elige nacer en la marginalidad, no en el palacio. Lucas subraya que los primeros en recibir el anuncio son pastores, los últimos de la escala social. El Evangelio nos recuerda que Dios habita en lo sencillo y nos invita a buscarle donde menos lo esperamos."
       },
       {
         numero: 4,
         titulo: "La Presentación del Niño Jesús en el Templo",
         contemplacion: "María y José presentan al Niño en el Templo. El anciano Simeón lo reconoce como la luz que iluminará a las naciones y anuncia a María que una espada atravesará su alma.",
-        referenciaBiblica: "Lucas 2, 22-38"
+        referenciaBiblica: "Lucas 2, 22-38",
+        preguntaReflexion: "¿Hay algo valioso en tu vida que sientes que debes 'presentar y entregar' a Dios, aunque sea difícil soltarlo?",
+        relacionEvangelio: "Simeón espera durante toda su vida y reconoce a Dios cuando llega. Lucas nos enseña que la fidelidad paciente abre los ojos del corazón. A la vez, la profecía de la espada nos recuerda que amar profundamente implica también aceptar el dolor que viene con ello."
       },
       {
         numero: 5,
         titulo: "El Niño Jesús perdido y hallado en el Templo",
         contemplacion: "Jesús, a los doce años, permanece en el Templo dialogando con los doctores de la Ley. María y José lo encuentran después de tres días de angustiosa búsqueda.",
-        referenciaBiblica: "Lucas 2, 41-52"
+        referenciaBiblica: "Lucas 2, 41-52",
+        preguntaReflexion: "¿Cuándo fue la última vez que sentiste que habías 'perdido a Jesús' en el ritmo de tu semana y tuviste que buscarlo de nuevo con intención?",
+        relacionEvangelio: "Jesús responde a sus padres: '¿No sabíais que debo estar en las cosas de mi Padre?' El Evangelio revela que hay una dimensión de la vida de Jesús que trasciende los lazos familiares. María y José no comprenden, pero guardan estas cosas en el corazón: la fe también madura en el misterio."
       }
     ]
   },
@@ -108,31 +118,41 @@ export const misterios = {
         numero: 1,
         titulo: "El Bautismo de Jesús en el Jordán",
         contemplacion: "Jesús desciende a las aguas del Jordán. Los cielos se abren, el Espíritu desciende como paloma y la voz del Padre proclama: «Este es mi Hijo amado, en quien me complazco».",
-        referenciaBiblica: "Mateo 3, 13-17"
+        referenciaBiblica: "Mateo 3, 13-17",
+        preguntaReflexion: "¿Cuándo fue la última vez que escuchaste —o necesitabas escuchar— que eres amado tal como eres, sin tener que ganártelo?",
+        relacionEvangelio: "La voz del Padre no dice 'este es mi Hijo que ya hizo grandes cosas', sino simplemente: 'en quien me complazco'. El Evangelio proclama que la identidad del creyente no se construye por logros, sino que es recibida como don. Somos hijos amados antes de hacer nada."
       },
       {
         numero: 2,
         titulo: "Las Bodas de Caná",
         contemplacion: "Por intercesión de María, Jesús realiza su primer signo. El agua se convierte en vino, revelando su gloria y fortaleciendo la fe de sus discípulos.",
-        referenciaBiblica: "Juan 2, 1-12"
+        referenciaBiblica: "Juan 2, 1-12",
+        preguntaReflexion: "¿Hay alguna situación en tu vida donde el 'vino se ha terminado' y aún no has llevado esa necesidad a Dios en oración?",
+        relacionEvangelio: "María nota la necesidad antes que nadie y la presenta a Jesús. Juan nos muestra que la intercesión es llevar al Señor lo que el mundo necesita. La indicación de María a los servidores —'hagan lo que Él les diga'— es también la clave del discipulado: obediencia confiada ante lo que parece insuficiente."
       },
       {
         numero: 3,
         titulo: "El Anuncio del Reino de Dios",
         contemplacion: "Jesús proclama la llegada del Reino de Dios e invita a la conversión. Enseña con parábolas y sana a los enfermos, manifestando la misericordia del Padre.",
-        referenciaBiblica: "Marcos 1, 14-15"
+        referenciaBiblica: "Marcos 1, 14-15",
+        preguntaReflexion: "¿Qué área de tu vida está más necesitada de conversión en este momento, y qué pequeño paso concreto podrías dar esta semana?",
+        relacionEvangelio: "Marcos condensa el anuncio de Jesús en pocas palabras: 'El tiempo se ha cumplido, el Reino está cerca, conviértanse y crean'. El Evangelio no propone una espiritualidad de perfección inalcanzable, sino una invitación urgente y accesible: cambiar la dirección del corazón y confiar."
       },
       {
         numero: 4,
         titulo: "La Transfiguración del Señor",
         contemplacion: "En el monte Tabor, Jesús se transfigura ante Pedro, Santiago y Juan. Su rostro brilla como el sol y sus vestidos se vuelven blancos como la luz, anticipando la gloria de la Resurrección.",
-        referenciaBiblica: "Mateo 17, 1-8"
+        referenciaBiblica: "Mateo 17, 1-8",
+        preguntaReflexion: "¿Hubo algún 'momento de montaña' esta semana —un instante de claridad, paz o belleza— que te habló de Dios sin palabras?",
+        relacionEvangelio: "Jesús lleva a los discípulos a lo alto antes de hablarles de su Pasión. Mateo nos muestra que la gloria precede y sostiene el camino hacia la cruz. La fe necesita esos momentos de luz que el Señor ofrece, para que cuando llegue la oscuridad, tengamos algo a lo qué volver."
       },
       {
         numero: 5,
         titulo: "La Institución de la Eucaristía",
         contemplacion: "En la Última Cena, Jesús toma el pan y el vino, los bendice y los entrega a sus discípulos diciendo: «Esto es mi Cuerpo... Esta es mi Sangre». Nos deja el sacramento de su amor.",
-        referenciaBiblica: "Mateo 26, 26-29"
+        referenciaBiblica: "Mateo 26, 26-29",
+        preguntaReflexion: "¿La última vez que participaste en la Eucaristía, fuiste con presencia o con rutina? ¿Qué te llevarías de ese encuentro si lo vivieras como si fuera el primero?",
+        relacionEvangelio: "Jesús parte el pan en la noche de su entrega. Mateo nos muestra que el mayor don se ofrece en el momento más oscuro. La Eucaristía no es solo un recuerdo, sino la presencia real de Aquel que se da totalmente: el Evangelio hecho gesto, alimento y comunión."
       }
     ]
   },
@@ -144,31 +164,41 @@ export const misterios = {
         numero: 1,
         titulo: "La Oración de Jesús en el Huerto",
         contemplacion: "En Getsemaní, Jesús suda sangre ante la inminencia de su Pasión. Mientras sus discípulos duermen, Él ora al Padre: «No se haga mi voluntad, sino la tuya».",
-        referenciaBiblica: "Lucas 22, 39-46"
+        referenciaBiblica: "Lucas 22, 39-46",
+        preguntaReflexion: "¿Hay algún 'cáliz' que estás pidiendo que se aleje de ti? ¿Puedes llevar esa angustia a la oración sin pretender resolver todo tú mismo?",
+        relacionEvangelio: "En Getsemaní, Jesús no actúa desde la fortaleza sino desde la vulnerabilidad orante. Lucas muestra que el Hijo de Dios necesita orar, y que esa oración es real, angustiada y confiada a la vez. El Evangelio nos enseña que sufrir y confiar no se contradicen: pueden coexistir en el mismo corazón."
       },
       {
         numero: 2,
         titulo: "La Flagelación del Señor",
         contemplacion: "Jesús, atado a una columna, es azotado cruelmente. Su cuerpo inocente recibe los golpes por nuestros pecados. En silencio, acepta el sufrimiento redentor.",
-        referenciaBiblica: "Juan 19, 1"
+        referenciaBiblica: "Juan 19, 1",
+        preguntaReflexion: "¿Hay alguna persona en tu entorno que está sufriendo injustamente? ¿Qué podrías hacer esta semana para acompañarla, aunque sea en silencio?",
+        relacionEvangelio: "El relato de Juan es sobrio, casi brutal en su brevedad: 'Pilato tomó a Jesús y lo mandó azotar'. La brevedad misma es elocuente. El Evangelio nos enfrenta al misterio del sufrimiento inocente sin dar explicaciones fáciles, invitándonos a permanecer ante él con fe y sin huir."
       },
       {
         numero: 3,
         titulo: "La Coronación de Espinas",
         contemplacion: "Los soldados coronan a Jesús con espinas, se burlan de Él y lo visten con un manto púrpura. El Rey del Universo es humillado y escarnecido por sus criaturas.",
-        referenciaBiblica: "Mateo 27, 27-31"
+        referenciaBiblica: "Mateo 27, 27-31",
+        preguntaReflexion: "¿Alguna vez te burlaste o menospreciaste a alguien más vulnerable que tú? ¿Cómo podrías reparar eso o actuar diferente la próxima vez?",
+        relacionEvangelio: "Mateo describe a toda la cohorte participando en la burla: es la lógica de la violencia colectiva, que deshumaniza a quien no tiene poder. El Evangelio desnuda esta crueldad para que la reconozcamos también en nuestras propias dinámicas grupales y aprendamos a resistirla."
       },
       {
         numero: 4,
         titulo: "Jesús con la Cruz a cuestas",
         contemplacion: "Jesús carga con la cruz camino del Calvario. Cae varias veces bajo su peso, encuentra a su Madre dolorosa, y el Cireneo es obligado a ayudarle.",
-        referenciaBiblica: "Lucas 23, 26-32"
+        referenciaBiblica: "Lucas 23, 26-32",
+        preguntaReflexion: "¿Hubo alguien esta semana que te ayudó a cargar tu cruz, quizás sin que se lo pidieras? ¿Le agradeciste?",
+        relacionEvangelio: "El Cireneo es obligado a ayudar, pero esa obligación se convierte en encuentro. Lucas nos recuerda que a veces el servicio comienza forzado y termina siendo transformador. La cruz que parece solo sufrimiento es también el lugar donde se tejen lazos de humanidad."
       },
       {
         numero: 5,
         titulo: "La Crucifixión y Muerte de Nuestro Señor",
         contemplacion: "Jesús es clavado en la cruz entre dos ladrones. Perdona a sus verdugos, encomienda su Madre a Juan, y entrega su espíritu al Padre. «Todo está consumado».",
-        referenciaBiblica: "Juan 19, 17-30"
+        referenciaBiblica: "Juan 19, 17-30",
+        preguntaReflexion: "¿Hay alguien a quien aún no has podido perdonar? ¿Qué necesitarías para dar un primer paso en esa dirección?",
+        relacionEvangelio: "Desde la cruz, Jesús no acusa sino que cuida: perdona, encomienda, da a su madre. Juan presenta la muerte de Jesús no como derrota sino como consumación de una misión de amor. 'Todo está consumado' es el grito del amor que se ha dado hasta el final, sin reservas."
       }
     ]
   },
@@ -180,31 +210,41 @@ export const misterios = {
         numero: 1,
         titulo: "La Resurrección del Señor",
         contemplacion: "Al tercer día, Jesús resucita glorioso del sepulcro. La muerte ha sido vencida. Las mujeres encuentran la tumba vacía y el ángel les anuncia: «Ha resucitado».",
-        referenciaBiblica: "Mateo 28, 1-10"
+        referenciaBiblica: "Mateo 28, 1-10",
+        preguntaReflexion: "¿Qué 'sepulcro' cerrado en tu vida —una relación, un proyecto, una esperanza— necesita que creas que Dios puede resucitarlo?",
+        relacionEvangelio: "Las mujeres van al sepulcro con perfumes para un muerto y encuentran vida. Mateo muestra que la Resurrección supera siempre la expectativa humana. El Evangelio no nos pide que expliquemos la Resurrección, sino que la anunciemos: 'Id y decídselo', porque eso cambia todo."
       },
       {
         numero: 2,
         titulo: "La Ascensión del Señor a los Cielos",
         contemplacion: "Cuarenta días después de la Resurrección, Jesús asciende al cielo ante la mirada de sus discípulos. Un ángel les promete que volverá de la misma manera.",
-        referenciaBiblica: "Hechos 1, 6-11"
+        referenciaBiblica: "Hechos 1, 6-11",
+        preguntaReflexion: "¿Pasas demasiado tiempo 'mirando al cielo' —esperando que todo cambie por sí solo— en lugar de actuar como discípulo en tu entorno concreto?",
+        relacionEvangelio: "Los ángeles preguntan: '¿Por qué están mirando al cielo?' La Ascensión no es una invitación a la evasión sino al envío. Hechos nos recuerda que la ausencia visible de Jesús inaugura la misión de la Iglesia: Él actúa ahora a través de nosotros en el mundo."
       },
       {
         numero: 3,
         titulo: "La Venida del Espíritu Santo",
         contemplacion: "En Pentecostés, el Espíritu Santo desciende sobre María y los apóstoles reunidos en el Cenáculo. Lenguas de fuego se posan sobre ellos y comienzan a predicar con valentía.",
-        referenciaBiblica: "Hechos 2, 1-13"
+        referenciaBiblica: "Hechos 2, 1-13",
+        preguntaReflexion: "¿Hay alguna situación en tu vida donde necesitas el coraje del Espíritu para decir o hacer algo que has venido postergando por miedo?",
+        relacionEvangelio: "Antes de Pentecostés, los discípulos se esconden. Después, salen y hablan. Hechos describe una transformación radical que no viene de ellos, sino del Espíritu. El Evangelio vivido en el Espíritu no es autosuficiencia, sino abandono confiado al fuego que nos precede."
       },
       {
         numero: 4,
         titulo: "La Asunción de María al Cielo",
         contemplacion: "María, terminado el curso de su vida terrena, es llevada en cuerpo y alma al cielo. Dios no permitió que conociera la corrupción quien fue arca de su presencia.",
-        referenciaBiblica: "Apocalipsis 12, 1"
+        referenciaBiblica: "Apocalipsis 12, 1",
+        preguntaReflexion: "¿Cómo cuidas tu cuerpo y tu alma como templos del Espíritu? ¿Hay algo concreto que quieras mejorar esta semana en esa integración?",
+        relacionEvangelio: "El Apocalipsis nos muestra a la mujer vestida de sol: imagen de María, imagen de la Iglesia, imagen de la humanidad redimida. Dios no abandona la materia: la asunción nos habla de que el cuerpo también está llamado a la gloria. Lo humano, en Cristo, está destinado a la plenitud."
       },
       {
         numero: 5,
         titulo: "La Coronación de María como Reina",
         contemplacion: "María es coronada Reina del cielo y de la tierra. Intercede por nosotros ante su Hijo y nos espera con amor maternal en la patria celestial.",
-        referenciaBiblica: "Apocalipsis 12, 1"
+        referenciaBiblica: "Apocalipsis 12, 1",
+        preguntaReflexion: "¿Le confías a María tus necesidades concretas de hoy, o la Virgen se ha quedado como un cuadro en la pared? ¿Qué le pedirías ahora mismo si ella estuviera frente a ti?",
+        relacionEvangelio: "La corona de María no es ornamento de poder sino de servicio cumplido. El Apocalipsis presenta a la mujer en el centro de la batalla cósmica entre el bien y el mal. María, coronada, sigue siendo madre: su reinado es intercesión, proximidad y ternura derramada sobre sus hijos."
       }
     ]
   }
@@ -258,7 +298,7 @@ export const guiaRosario = {
     "Padre Nuestro (cuenta grande)",
     "10 Ave Marías (cuentas pequeñas)",
     "Gloria",
-    "Oración de Lourdes (opcional)"
+    "Jaculatoria (opcional)"
   ],
   final: [
     "Salve Reina",
