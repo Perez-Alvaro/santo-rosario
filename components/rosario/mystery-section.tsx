@@ -59,32 +59,23 @@ export function MysterySection({
                     </span>
                     <div className="flex-1">
                       {/* CAMBIO 3: título más grande para legibilidad solar en móvil */}
-                      <h4 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
+                      <h4 className="text-lg sm:text-xl font-semibold text-foreground mb-1">
                         {misterio.titulo}
                       </h4>
-                      <p
-                        className="text-muted-foreground text-[14px] sm:text-[15px]"
-                        style={{
-                          lineHeight: 'var(--lectio-line-height)',
-                          letterSpacing: 'var(--lectio-letter-spacing)',
-                        }}
-                      >
-                        {misterio.contemplacion}
-                      </p>
                       {misterio.referenciaBiblica && (
-                        <p className="text-muted-foreground/70 text-[13px] sm:text-[14px] italic mt-3">
+                        <p className="text-muted-foreground/70 text-[13px] sm:text-[14px] italic mb-3">
                           {misterio.referenciaBiblica}
                         </p>
                       )}
 
                       {/* CAMBIO 2: relacionEvangelio */}
                       {misterio.relacionEvangelio && (
-                        <div className="mt-4 space-y-1">
-                          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/60">
+                        <div className="mt-4 space-y-2">
+                          <p className="text-[12px] font-semibold uppercase tracking-wider text-primary/80">
                             El Evangelio nos dice
                           </p>
                           <p
-                            className="text-muted-foreground text-[14px] sm:text-[15px]"
+                            className="text-foreground text-[16px] sm:text-[17px] leading-relaxed"
                             style={{
                               lineHeight: 'var(--lectio-line-height)',
                               letterSpacing: 'var(--lectio-letter-spacing)',
