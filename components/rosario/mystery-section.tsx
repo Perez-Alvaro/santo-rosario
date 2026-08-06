@@ -98,7 +98,7 @@ export function MysterySection({
                               ❓
                             </span>
                             <p
-                              className="italic text-primary/80 text-[14px] sm:text-[15px]"
+                              className="italic text-foreground text-[14px] sm:text-[15px]"
                               style={{
                                 lineHeight: 'var(--lectio-line-height)',
                                 letterSpacing: 'var(--lectio-letter-spacing)',

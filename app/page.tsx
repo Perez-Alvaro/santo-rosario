@@ -10,6 +10,7 @@ import { JaculatoriasSection } from "@/components/rosario/jaculatorias-section";
 import { RosaryGuide } from "@/components/rosario/rosary-guide";
 import { EvangelioSection } from "@/components/rosario/evangelio-section";
 import { CoronillaSection } from "@/components/rosario/coronilla-section";
+import { LetaniasSection } from "@/components/rosario/letanias-section";
 import { ThemeToggle } from "@/components/rosario/theme-toggle";
 import {
   Accordion,
@@ -22,6 +23,7 @@ const tabs = [
   { id: "rosario", label: "Rosario" },
   { id: "misterios", label: "Misterios" },
   { id: "oraciones", label: "Oraciones" },
+  { id: "letanias", label: "Letanías" },
   { id: "coronilla", label: "Coronilla" },
   { id: "evangelio", label: "Evangelio" },
 ];
@@ -186,6 +188,20 @@ export default function RosarioPage() {
                 defaultOpen={todaysMystery === "gloriosos"}
               />
             </div>
+          </section>
+        )}
+
+        {/* Letanías Section */}
+        {activeTab === "letanias" && (
+          <section>
+            <h2 className="text-xl font-semibold text-foreground mb-2">
+              Letanías
+            </h2>
+            <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+              Oraciones litánicas para la consagración a Jesús por manos de María,
+              según el espíritu del <em>Tratado de la Verdadera Devoción</em> de San Luis de Montfort.
+            </p>
+            <LetaniasSection />
           </section>
         )}
 
